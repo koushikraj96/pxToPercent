@@ -1,8 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
@@ -58,7 +60,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 1.0,
@@ -84,7 +86,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -102,23 +104,27 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: TextFormField(
                               controller: _model.canvasWidthController,
                               focusNode: _model.canvasWidthFocusNode,
-                              onFieldSubmitted: (_) async {
-                                setState(() {
-                                  FFAppState().canvasWidth = int.parse(
-                                      _model.canvasWidthController.text);
-                                });
-                              },
+                              onChanged: (_) => EasyDebounce.debounce(
+                                '_model.canvasWidthController',
+                                Duration(milliseconds: 2000),
+                                () async {
+                                  setState(() {
+                                    FFAppState().canvasWidth = int.parse(
+                                        _model.canvasWidthController.text);
+                                  });
+                                },
+                              ),
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -164,30 +170,34 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                       ]
-                          .addToStart(const SizedBox(width: 30.0))
-                          .addToEnd(const SizedBox(width: 30.0)),
+                          .addToStart(SizedBox(width: 30.0))
+                          .addToEnd(SizedBox(width: 30.0)),
                     ),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: TextFormField(
                               controller: _model.canvasHeightController,
                               focusNode: _model.canvasHeightFocusNode,
-                              onFieldSubmitted: (_) async {
-                                setState(() {
-                                  FFAppState().canvasHeight = int.parse(
-                                      _model.canvasHeightController.text);
-                                });
-                              },
+                              onChanged: (_) => EasyDebounce.debounce(
+                                '_model.canvasHeightController',
+                                Duration(milliseconds: 2000),
+                                () async {
+                                  setState(() {
+                                    FFAppState().canvasHeight = int.parse(
+                                        _model.canvasHeightController.text);
+                                  });
+                                },
+                              ),
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -233,13 +243,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                       ]
-                          .addToStart(const SizedBox(width: 30.0))
-                          .addToEnd(const SizedBox(width: 30.0)),
+                          .addToStart(SizedBox(width: 30.0))
+                          .addToEnd(SizedBox(width: 30.0)),
                     ),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -257,7 +267,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -273,7 +283,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ],
                     ),
                   ),
-                  const Divider(
+                  Divider(
                     thickness: 2.0,
                     color: Colors.black,
                   ),
@@ -282,7 +292,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -300,7 +310,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 15.0, 15.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -308,14 +318,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
                                 child: TextFormField(
                                   controller: _model.widthController,
                                   focusNode: _model.widthFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.widthController',
-                                    const Duration(milliseconds: 2000),
+                                    Duration(milliseconds: 2000),
                                     () async {
                                       setState(() {
                                         _model.width = valueOrDefault<double>(
@@ -392,7 +402,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -419,11 +429,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ),
                             ),
                           ]
-                              .addToStart(const SizedBox(width: 15.0))
-                              .addToEnd(const SizedBox(width: 15.0)),
+                              .addToStart(SizedBox(width: 15.0))
+                              .addToEnd(SizedBox(width: 15.0)),
                         ),
                       ),
-                      const Divider(
+                      Divider(
                         thickness: 2.0,
                         color: Colors.black,
                       ),
@@ -434,7 +444,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -452,7 +462,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 15.0, 15.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -460,14 +470,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
                                 child: TextFormField(
                                   controller: _model.heightController,
                                   focusNode: _model.heightFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.heightController',
-                                    const Duration(milliseconds: 2000),
+                                    Duration(milliseconds: 2000),
                                     () async {
                                       setState(() {
                                         _model.height = valueOrDefault<double>(
@@ -544,7 +554,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -571,11 +581,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ),
                             ),
                           ]
-                              .addToStart(const SizedBox(width: 15.0))
-                              .addToEnd(const SizedBox(width: 15.0)),
+                              .addToStart(SizedBox(width: 15.0))
+                              .addToEnd(SizedBox(width: 15.0)),
                         ),
                       ),
-                      const Divider(
+                      Divider(
                         thickness: 2.0,
                         color: Colors.black,
                       ),

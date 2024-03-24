@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -17,7 +18,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   Future initializePersistedState() async {
-    secureStorage = const FlutterSecureStorage();
+    secureStorage = FlutterSecureStorage();
     await _safeInitAsync(() async {
       _canvasHeight =
           await secureStorage.getInt('ff_canvasHeight') ?? _canvasHeight;
@@ -35,22 +36,22 @@ class FFAppState extends ChangeNotifier {
 
   late FlutterSecureStorage secureStorage;
 
-  int _canvasHeight = 0;
+  int _canvasHeight = 812;
   int get canvasHeight => _canvasHeight;
-  set canvasHeight(int value) {
-    _canvasHeight = value;
-    secureStorage.setInt('ff_canvasHeight', value);
+  set canvasHeight(int _value) {
+    _canvasHeight = _value;
+    secureStorage.setInt('ff_canvasHeight', _value);
   }
 
   void deleteCanvasHeight() {
     secureStorage.delete(key: 'ff_canvasHeight');
   }
 
-  int _canvasWidth = 0;
+  int _canvasWidth = 375;
   int get canvasWidth => _canvasWidth;
-  set canvasWidth(int value) {
-    _canvasWidth = value;
-    secureStorage.setInt('ff_canvasWidth', value);
+  set canvasWidth(int _value) {
+    _canvasWidth = _value;
+    secureStorage.setInt('ff_canvasWidth', _value);
   }
 
   void deleteCanvasWidth() {
@@ -103,12 +104,12 @@ extension FlutterSecureStorageExtensions on FlutterSecureStorage {
         if (result == null || result.isEmpty) {
           return null;
         }
-        return const CsvToListConverter()
+        return CsvToListConverter()
             .convert(result)
             .first
             .map((e) => e.toString())
             .toList();
       });
   Future<void> setStringList(String key, List<String> value) async =>
-      await writeSync(key: key, value: const ListToCsvConverter().convert([value]));
+      await writeSync(key: key, value: ListToCsvConverter().convert([value]));
 }

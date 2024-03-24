@@ -1,2 +1,7 @@
-# pxToPercent
-This app helps you to convert absolute px values to relative values (%) for frontend and flutter design. The app is built with Flutter
+# Res calc
+
+A new Flutter project.
+
+## Getting Started
+
+FlutterFlow projects are built to run on the Flutter _stable_ release.
