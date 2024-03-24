@@ -5,7 +5,7 @@
 
 
     <application
-        android:label="Res calc"
+        android:label="Resolution Calc"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
@@ -45,7 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="rescalc" android:host="rescalc.com" />
+                <data android:scheme="resolutioncalc" android:host="resolutioncalc.com" />
             </intent-filter>
 
         </activity>

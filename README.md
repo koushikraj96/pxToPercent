@@ -1,4 +1,4 @@
-# Res calc
+# Resolution Calc
 
 A new Flutter project.
 

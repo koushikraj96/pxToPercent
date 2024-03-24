@@ -39,12 +39,17 @@ class _MyAppState extends State<MyApp> {
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
 
+  bool displaySplashImage = true;
+
   @override
   void initState() {
     super.initState();
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
+
+    Future.delayed(Duration(milliseconds: 1000),
+        () => setState(() => _appStateNotifier.stopShowingSplashImage()));
   }
 
   void setThemeMode(ThemeMode mode) => setState(() {
@@ -55,7 +60,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Res calc',
+      title: 'Resolution Calc',
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
